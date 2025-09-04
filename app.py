@@ -191,10 +191,20 @@ def show_prediction_page(model, scaler):
     with col1:
         st.markdown("### 📝 Enter Flower Measurements")
 
-        sepal_length = st.slider("Sepal Length (cm)", 4.0, 8.0, 5.4, 0.1)
-        sepal_width = st.slider("Sepal Width (cm)", 2.0, 4.5, 3.4, 0.1)
-        petal_length = st.slider("Petal Length (cm)", 1.0, 7.0, 4.7, 0.1)
-        petal_width = st.slider("Petal Width (cm)", 0.1, 2.5, 1.4, 0.1)
+        # Initialize session state for example values
+        if 'sepal_length' not in st.session_state:
+            st.session_state.sepal_length = 5.4
+        if 'sepal_width' not in st.session_state:
+            st.session_state.sepal_width = 3.4
+        if 'petal_length' not in st.session_state:
+            st.session_state.petal_length = 4.7
+        if 'petal_width' not in st.session_state:
+            st.session_state.petal_width = 1.4
+        
+        sepal_length = st.slider("Sepal Length (cm)", 4.0, 8.0, st.session_state.sepal_length, 0.1, key="sepal_length_slider")
+        sepal_width = st.slider("Sepal Width (cm)", 2.0, 4.5, st.session_state.sepal_width, 0.1, key="sepal_width_slider")
+        petal_length = st.slider("Petal Length (cm)", 1.0, 7.0, st.session_state.petal_length, 0.1, key="petal_length_slider")
+        petal_width = st.slider("Petal Width (cm)", 0.1, 2.5, st.session_state.petal_width, 0.1, key="petal_width_slider")
 
         if st.button("🔮 Predict Species", type="primary"):
             # Make prediction
@@ -245,6 +255,7 @@ def show_prediction_page(model, scaler):
             st.session_state.sepal_width = 3.5
             st.session_state.petal_length = 1.4
             st.session_state.petal_width = 0.2
+            st.rerun()
 
     with col2:
         if st.button("Versicolor Example"):
@@ -252,6 +263,7 @@ def show_prediction_page(model, scaler):
             st.session_state.sepal_width = 2.2
             st.session_state.petal_length = 4.0
             st.session_state.petal_width = 1.0
+            st.rerun()
 
     with col3:
         if st.button("Virginica Example"):
@@ -259,6 +271,7 @@ def show_prediction_page(model, scaler):
             st.session_state.sepal_width = 3.3
             st.session_state.petal_length = 6.0
             st.session_state.petal_width = 2.5
+            st.rerun()
 
 def show_model_performance():
     """Model performance page"""
