@@ -28,16 +28,16 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     .metric-card {
-        background-color: #f0f2f6;
+        background-color: #222831;
         padding: 1rem;
         border-radius: 0.5rem;
-        border-left: 4px solid #1f77b4;
+        border-left: 4px solid #2B2B2B;
     }
     .prediction-box {
-        background-color: #e8f4fd;
+        background-color: #222831;
         padding: 1.5rem;
         border-radius: 0.5rem;
-        border: 2px solid #1f77b4;
+        border: 2px solid #2B2B2B;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -213,7 +213,7 @@ def show_prediction_page(model, scaler):
                 # Prediction box
                 st.markdown(f"""
                 <div class="prediction-box">
-                    <h3>🌺 Predicted Species: <strong>{predicted_species.title()}</strong></h3>)
+                    <h3>🌺 Predicted Species: <strong>{predicted_species.title()}</strong></h3>
                 </div>
                 """, unsafe_allow_html=True)
 
@@ -292,7 +292,7 @@ def show_model_performance():
         """, unsafe_allow_html=True)
 
     # Model details
-    st.markdown("### 🤖 Model Information")
+    st.markdown("### ℹ️ Model Information")
     st.markdown("""
     **Support Vector Machine (SVM)**
     - Kernel: RBF (Radial Basis Function)

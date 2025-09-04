@@ -97,14 +97,6 @@ Visit: https://irisflowerclassificationproject.streamlit.app/
 
 This project is deployed on **Streamlit Cloud** and automatically updates when changes are pushed to GitHub.
 
-## 📝 Future Improvements
-
-- Add more machine learning algorithms
-- Implement hyperparameter tuning
-- Add data upload functionality
-- Create mobile-responsive design
-- Add model explanation features
-
 ---
 
 *This is a practice project for learning data science concepts hands-on.*
